@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-gray-800 bg-gradient-to-br from-violet-50 to-pink-50;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white/80 backdrop-blur-lg rounded-xl lg:rounded-2xl shadow-xl border border-white/20;
+  }
+  
+  .btn {
+    @apply px-4 py-2 lg:px-6 lg:py-3 rounded-xl font-medium transition-all duration-300 transform hover:-translate-y-0.5 text-sm lg:text-base;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-violet-500 to-purple-500 text-white hover:from-violet-600 hover:to-purple-600 shadow-lg shadow-purple-500/30;
+  }
+
+  .mood-button {
+    @apply relative p-3 lg:p-4 rounded-xl lg:rounded-2xl transition-all duration-300 hover:scale-105 active:scale-95;
+  }
+
+  .mood-button.selected {
+    @apply ring-2 ring-offset-2 ring-violet-500 scale-105 shadow-lg;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 lg:py-3 rounded-xl text-sm lg:text-base border-2 border-gray-100 focus:border-violet-500 focus:ring focus:ring-violet-200 transition-all duration-300;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+.selected-entry {
+  @apply bg-gradient-to-r from-violet-50/50 to-pink-50/50 border-violet-200/50 shadow-lg;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+.animate-float {
+  animation: float 10s ease-in-out infinite;
+}
+
+@keyframes slow-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 60s linear infinite;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
+}
+
+/* Ensure the panel is always on top */
+.headlessui-portal {
+  z-index: 9999 !important;
+}
+
+/* Pattern styles */
+.pattern-circles {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pattern-hearts {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z' fill='rgba(255,255,255,0.2)' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.pattern-waves {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10c5-5 10-5 15 0s10 5 15 0 10-5 15 0 10 5 15 0 10-5 15 0 10 5 15 0' stroke='rgba(255,255,255,0.2)' fill='none'/%3E%3C/svg%3E");
+}
+
+.pattern-stars {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 0l2.832 9.168H24L16.584 14.832 19.416 24 12 18.336 4.584 24l2.832-9.168L0 9.168h9.168L12 0z' fill='rgba(255,255,255,0.2)'/%3E%3C/svg%3E");
+}
+
+.pattern-bubbles {
+  background-image: radial-gradient(circle at center center, rgba(255,255,255,0.2), rgba(255,255,255,0.2) 2px, transparent 2px, transparent);
+  background-size: 18px 18px;
+}
+
+.pattern-clouds {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='40' viewBox='0 0 60 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0c8.285 0 15 6.715 15 15 0 8.284-6.715 15-15 15-8.284 0-15-6.716-15-15C15 6.715 21.716 0 30 0z' fill='rgba(255,255,255,0.2)'/%3E%3C/svg%3E");
+}
+
+.pattern-diamonds {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 0l12 12-12 12L0 12z' fill='rgba(255,255,255,0.2)'/%3E%3C/svg%3E");
+}
+
+.pattern-sunbursts {
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 0v30M0 15h30M4.5 4.5l21 21M4.5 25.5l21-21' stroke='rgba(255,255,255,0.2)' fill='none'/%3E%3C/svg%3E");
+}
+
+.pattern-leaves {
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 16c8-8 16-8 24 0s8 16 0 24-16 8-24 0-8-16 0-24z' fill='rgba(255,255,255,0.2)'/%3E%3C/svg%3E");
+}
